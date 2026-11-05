@@ -11,6 +11,14 @@ la plus récente publiée doit être celle de `package.json` et de `src/plugin.g
 
 ## [Non publié]
 
+## [0.3.2] — 2026-11-05
+
+Aucun changement dans le module : cette version concerne seulement ceux qui contribuent à son développement.
+
+### Modifié
+
+- Contribution : les documents du marché (CCTP, charte) ne peuvent plus être ajoutés au dépôt par erreur, et un dossier `tmp/` permet de les garder à portée de main
+
 ## [0.3.1] — 2026-11-04
 
 ### Corrigé

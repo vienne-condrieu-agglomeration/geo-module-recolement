@@ -1,6 +1,6 @@
 {
   "name": "geo-recolement",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Module GEO de lecture et d'analyse des plans de récolement DXF : classement par métier, réseau déduit de la géométrie, contrôles ; insertion en table seulement si des tables cibles sont configurées",
   "main": "src/js/extension.js",
   "devDependencies": {
