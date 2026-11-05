@@ -28,6 +28,8 @@ Plan réel du marché, non versionné. Ces constats ne valent que pour lui : un 
 Le dépôt est **public** et ce qui y est poussé y reste, même après suppression. Plans, CCTP et charte sont transmis hors de git.
 
 - Ne jamais commiter un DXF, un DWG, ni ce qui vient d'un plan réel : numéro de regard, cote, adresse, coordonnées, nom de fichier ou numéro de dossier.
+- Pour garder ces fichiers à portée de main, créer un dossier `tmp/` à la racine du dépôt : git l'ignore entièrement.
+- Ne pas ajouter au dépôt le CCTP, la charte ni un autre document du marché. Leurs formats (`.doc`, `.docx`, `.pdf`) sont ignorés par git, comme les plans ; ne pas forcer leur ajout avec `git add -f`.
 - Dans le code, les tests et les messages de commit, n'écrire que des comptages globaux ou des valeurs fictives.
 - Les issues et les PR sont publiques elles aussi : pas de capture d'un plan réel.
 - Si un plan réel a été poussé par erreur, **s'arrêter et prévenir aussitôt le mainteneur** : un nouveau commit qui supprime le fichier ne le retire pas de l'historique.
@@ -40,13 +42,13 @@ npm test
 ```
 
 Sans plan réel, les tests utilisent de petits jeux écrits dans le code et affichent `plan réel absent : test ignoré`. Pour les lancer aussi sur le plan du marché,
-donner son chemin, en dehors du dépôt de préférence :
+le déposer dans `tmp/` et donner son chemin :
 
 ```bash
-GEO_RECOLEMENT_PLAN=/chemin/vers/plan.dxf npm test                  # bash (Git Bash, Linux)
+GEO_RECOLEMENT_PLAN=tmp/plan.dxf npm test                  # bash (Git Bash, Linux)
 ```
 ```powershell
-$env:GEO_RECOLEMENT_PLAN = "C:\chemin\vers\plan.dxf"; npm test      # PowerShell
+$env:GEO_RECOLEMENT_PLAN = "tmp\plan.dxf"; npm test        # PowerShell
 ```
 
 Ce test compare des comptages exacts du plan de test : un autre plan le fera échouer sans que le code soit en cause.

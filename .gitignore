@@ -9,4 +9,10 @@ lib/*.tgz
 *.dwg
 *.DWG
 *.dwt
+*.doc
+*.DOC
+*.docx
+*.DOCX
+*.pdf
+*.PDF
 tmp/
