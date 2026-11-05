@@ -1,0 +1,106 @@
+{
+  "name": "geo.recolement",
+  "displayName": "Récolement (import de plans)",
+  "version": "0.3.1",
+  "minGeoVersion": "3.2.0",
+  "author": "fallamanche@vienne-condrieu-agglomeration.fr",
+  "allowMultiple": false,
+  "reuseConfiguration": true,
+  "preview": "src/preview.png",
+  "compatibleZoneTags": [
+    "global.pro",
+    "leftpanel",
+    "widget.side.pro",
+    "widget.side"
+  ],
+  "code": {
+    "moduleName": "geo.recolement",
+    "dependencies": [
+      "bg.acf.base",
+      "bg.common.geo.GeoApi"
+    ]
+  },
+  "configuration": [
+    {
+      "@type": "com.bg.functionality.canvas.configuration.ConfigurationGroup",
+      "name": "Récolement",
+      "elements": [
+        {
+          "@type": "com.bg.functionality.canvas.configuration.PropertyConfigurationElement",
+          "required": false,
+          "name": "Libellé de l'onglet",
+          "description": "Libellé de l'onglet de la barre latérale droite.",
+          "key": "toolName",
+          "type": "STRING",
+          "defaultValue": "Récolement"
+        },
+        {
+          "@type": "com.bg.functionality.canvas.configuration.PropertyConfigurationElement",
+          "name": "Largeur du panneau (%)",
+          "description": "Part de la fenêtre occupée par le panneau ouvert.",
+          "key": "panelWidth",
+          "required": false,
+          "type": "NUMBER",
+          "minValue": 25,
+          "maxValue": 60,
+          "step": 5,
+          "defaultValue": 35
+        },
+        {
+          "@type": "com.bg.functionality.canvas.configuration.FunctionalityConfigurationElement",
+          "name": "Tables cibles (fiches info éditables)",
+          "description": "Facultatif : sans table, le module lit et analyse les plans sans rien écrire. Fiches info des tables StaR Eau dans lesquelles les ouvrages du plan peuvent être insérés (par exemple « Regards d'assainissement »). La fiche doit autoriser la création d'objets.",
+          "key": "targets",
+          "required": false,
+          "allowedTypes": ["INFOSHEET"],
+          "withIcons": false,
+          "withSymbols": false,
+          "min": 0,
+          "max": 6
+        },
+        {
+          "@type": "com.bg.functionality.canvas.configuration.PropertyConfigurationElement",
+          "name": "Projection des DXF importés",
+          "description": "Système de coordonnées des fichiers DXF déposés. Le CCTP de topographie impose RGF93 Lambert-93 CC45 (EPSG:3945).",
+          "key": "importCrs",
+          "required": false,
+          "type": "ENUMERATED",
+          "values": [
+            "Lambert-93 (EPSG:2154)",
+            "CC42 (EPSG:3942)",
+            "CC43 (EPSG:3943)",
+            "CC44 (EPSG:3944)",
+            "CC45 (EPSG:3945)",
+            "CC46 (EPSG:3946)",
+            "CC47 (EPSG:3947)",
+            "CC48 (EPSG:3948)",
+            "CC49 (EPSG:3949)",
+            "CC50 (EPSG:3950)"
+          ],
+          "labels": [
+            "Lambert-93 (EPSG:2154)",
+            "CC42 (EPSG:3942)",
+            "CC43 (EPSG:3943)",
+            "CC44 (EPSG:3944)",
+            "CC45 (EPSG:3945)",
+            "CC46 (EPSG:3946)",
+            "CC47 (EPSG:3947)",
+            "CC48 (EPSG:3948)",
+            "CC49 (EPSG:3949)",
+            "CC50 (EPSG:3950)"
+          ],
+          "defaultValue": "CC45 (EPSG:3945)"
+        },
+        {
+          "@type": "com.bg.functionality.canvas.configuration.PropertyConfigurationElement",
+          "name": "Correspondance attributs → champs",
+          "description": "Correspondance de départ entre les attributs des blocs du plan et les champs de la table, sous la forme ATTRIBUT=champ séparés par des points-virgules (ex. REGARD=idregard;RADIER=z_radier). Les attributs non listés sont proposés d'après leur nom ; l'utilisateur peut tout modifier dans le panneau.",
+          "key": "mapping",
+          "required": false,
+          "type": "STRING",
+          "defaultValue": ""
+        }
+      ]
+    }
+  ]
+}

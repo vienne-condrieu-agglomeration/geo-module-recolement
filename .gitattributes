@@ -1,0 +1,4 @@
+# Toujours LF dans le dépôt, y compris sous Windows
+* text=auto eol=lf
+*.png binary
+*.zip binary

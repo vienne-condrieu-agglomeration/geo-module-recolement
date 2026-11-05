@@ -1,0 +1,12 @@
+node_modules
+dist
+*.zip
+# Plugin propriétaire Business Geografic : ne pas versionner (voir lib/README.md)
+lib/*.tgz
+# Plans et documents du marché : jamais dans git (voir GUIDE-DEV.md)
+*.dxf
+*.DXF
+*.dwg
+*.DWG
+*.dwt
+tmp/
